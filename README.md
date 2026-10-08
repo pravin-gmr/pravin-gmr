@@ -1,4 +1,4 @@
-# Hi, I'm Pravin Gupta 👋
+# Hi, I'm Prayin Gupta 👋
 
 ### Senior Full Stack Software Engineer
 
