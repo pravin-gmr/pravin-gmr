@@ -7,7 +7,7 @@ ASP.NET Core · Angular & React · Microservices · CI/CD · AWS / Azure
 [![Portfolio](https://img.shields.io/badge/Portfolio-View_my_work-0e7490?style=for-the-badge&logo=vercel&logoColor=white)](https://pravingupta-portfolio.vercel.app/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge)](https://www.linkedin.com/in/er-pravin-gupta/)
 [![Email](https://img.shields.io/badge/Email-Get_in_touch-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:pravingupta267@gmail.com)
-[![Resume](https://img.shields.io/badge/Resume-Download_PDF-111111?style=for-the-badge)](./Pravin_Gupta_Resume.pdf)
+[![Resume](https://img.shields.io/badge/Resume-Download_PDF-111111?style=for-the-badge)](./resume.pdf)
 
 ---
 
