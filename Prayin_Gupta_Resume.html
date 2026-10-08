@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prayin Gupta – Resume</title>
+  <style>
+    /* ══ PRINT / PDF — tight A4 / Letter fit ═══ */
+    @page {
+      size: letter;
+      margin: 0.55in 0.65in 0.55in 0.65in;
+    }
+
+    @media print {
+
+      html,
+      body {
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #fff !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .toolbar {
+        display: none !important;
+      }
+
+      .page-wrap {
+        padding: 0 !important;
+        margin: 0 !important;
+        background: transparent !important;
+        display: block !important;
+        box-shadow: none !important;
+      }
+
+      .page {
+        box-shadow: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* prevent orphan section headers */
+      .section-header {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+
+      /* Allow long jobs to break across pages naturally —
+         avoids the entire Work Experience section jumping to page 2 */
+      .job {
+        page-break-inside: auto;
+        break-inside: auto;
+      }
+
+      .project {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+    }
+
+    /* ════ TOKENS ════ */
+    :root {
+      --green: #0e7490;
+      --green2: #0891b2;
+      --black: #111111;
+      --gray: #333333;
+      --subtle: #555555;
+      --divider: #c0c0c0;
+      --bg: #ffffff;
+      --font: 'Calibri', 'Arial', sans-serif;
+    }
+
+    /* ═══════════════════════════════════════
+   BASE
+═══════════════════════════════════════ */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #d0d0d0;
+      font-family: var(--font);
+      font-size: 10pt;
+      color: var(--gray);
+      line-height: 1.35;
+    }
+
+    /* ═══════════════════════════════════════
+   TOOLBAR
+═══════════════════════════════════════ */
+    .toolbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: #1c1c1c;
+      color: #fff;
+      padding: 8px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: Arial, sans-serif;
+      font-size: 11.5px;
+    }
+
+    .toolbar .hint {
+      opacity: .5;
+      font-size: 10.5px;
+      margin-left: auto;
+    }
+
+    .tbtn {
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      padding: 5px 13px;
+      font-size: 11.5px;
+      font-weight: 700;
+    }
+
+    .tbtn-green {
+      background: #0e7490;
+      color: #fff;
+    }
+
+    .tbtn-green:hover {
+      background: #0c6478;
+    }
+
+    .tbtn-ghost {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, .35);
+      color: #fff;
+    }
+
+    .tbtn-ghost:hover {
+      background: rgba(255, 255, 255, .1);
+    }
+
+    /* ═══════════════════════════════════════
+   PAGE WRAPPER
+═══════════════════════════════════════ */
+    .page-wrap {
+      padding: 56px 20px 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .page {
+      background: var(--bg);
+      width: 8.5in;
+      padding: 0.55in 0.65in;
+      box-shadow: 0 3px 24px rgba(0, 0, 0, .22);
+      border-radius: 2px;
+    }
+
+    /* ═════════════ HEADER ══════════════ */
+    .rh-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 6px;
+    }
+
+    .rh-header-left {
+      flex: 1;
+    }
+
+    .rh-header-right {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .rh-name {
+      font-size: 26pt;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -.3px;
+      line-height: 1;
+    }
+
+    .rh-title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--green);
+      margin-top: 3px;
+    }
+
+    .rh-skills {
+      margin-top: 5px;
+      font-size: 9pt;
+      color: var(--subtle);
+      line-height: 1.4;
+    }
+
+    .badge {
+      display: inline-block;
+      font-weight: 600;
+      color: var(--green);
+      background: #e0f7fa;
+      border: 1px solid #80cbc4;
+      padding: 1px 7px;
+      border-radius: 10px;
+      font-size: 8.5pt;
+    }
+
+    .rh-contact {
+      margin-top: 5px;
+      font-size: 9pt;
+      color: var(--subtle);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 3px;
+    }
+
+    .rh-ci {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 5px;
+    }
+
+    .rh-ci-icon {
+      color: var(--green);
+      flex-shrink: 0;
+      opacity: 0.85;
+    }
+
+    .rh-contact a {
+      color: var(--subtle);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .rh-contact a:hover {
+      color: var(--green);
+    }
+
+    /* ═══════ SECTION HEADER — green bold + underline ═══════ */
+    .section-header {
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--green);
+      border-bottom: 1.5px solid var(--green);
+      padding-bottom: 2px;
+      margin-top: 11px;
+      margin-bottom: 5px;
+    }
+
+    /* ═══════ SUMMARY ═══════ */
+    .summary {
+      font-size: 9.5pt;
+      color: var(--gray);
+      line-height: 1.45;
+    }
+
+    /* ═══════ SKILLS TABLE (two columns) ═══════ */
+    .skills-grid {
+      display: grid;
+      gap: 2px 24px;
+    }
+
+    .skill-row {
+      display: flex;
+      gap: 6px;
+      font-size: 9.5pt;
+    }
+
+    .skill-label {
+      font-weight: 700;
+      color: var(--black);
+      white-space: nowrap;
+    }
+
+    .skill-value {
+      color: var(--gray);
+    }
+
+    /* ═══════ JOB ═══════ */
+    .job {
+      margin-bottom: 8px;
+    }
+
+    .job-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .job-co-title {
+      font-size: 10pt;
+      font-weight: 700;
+      color: var(--black);
+    }
+
+    .job-co-sub {
+      font-size: 9.5pt;
+      font-style: italic;
+      color: var(--subtle);
+    }
+
+    .job-dates {
+      font-size: 9pt;
+      color: var(--subtle);
+      white-space: nowrap;
+    }
+
+    .job-company {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 3px;
+    }
+
+    ul.bl {
+      list-style: disc;
+      padding-left: 18px;
+      margin: 2px 0 3px;
+    }
+
+    ul.bl li {
+      font-size: 9.5pt;
+      color: var(--gray);
+      margin-bottom: 2px;
+      line-height: 1.4;
+    }
+
+    ul.bl li::marker {
+      color: var(--green);
+      font-size: 8pt;
+    }
+
+    .stack {
+      font-size: 8.5pt;
+      color: var(--subtle);
+      padding-left: 4px;
+      border-left: 2px solid var(--green);
+      margin-top: 3px;
+      line-height: 1.35;
+    }
+
+    .stack b {
+      color: var(--gray);
+    }
+
+    /* ═══════════════════════════════════════
+   PROJECT
+═══════════════════════════════════════ */
+    .project {
+      margin-bottom: 7px;
+    }
+
+    .proj-name {
+      font-size: 10pt;
+      font-weight: 700;
+      color: var(--black);
+    }
+
+    .proj-meta {
+      font-size: 8.5pt;
+      color: var(--subtle);
+      font-style: italic;
+    }
+
+    .proj-desc {
+      font-size: 9.5pt;
+      color: var(--gray);
+      margin: 2px 0 3px;
+      line-height: 1.4;
+    }
+
+    /* ═══════════════════════════════════════
+   EDUCATION
+═══════════════════════════════════════ */
+    .edu-degree {
+      font-size: 10pt;
+      font-weight: 700;
+      color: var(--black);
+    }
+
+    .edu-sub {
+      font-size: 9.5pt;
+      font-style: italic;
+      color: var(--subtle);
+    }
+
+    .edu-info {
+      font-size: 9pt;
+      color: var(--subtle);
+    }
+
+    /* ═══════════════════════════════════════
+   CONTENTEDITABLE FOCUS RING
+═══════════════════════════════════════ */
+    [contenteditable]:focus {
+      outline: 2px dashed var(--green);
+      outline-offset: 1px;
+      border-radius: 2px;
+    }
+
+    /* metric highlight */
+    .m {
+      font-weight: 700;
+      color: var(--black);
+      background: #efefef;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-size: 0.92em;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── TOOLBAR ── -->
+  <div class="toolbar">
+    <span>✏️ Click any text to edit</span>
+    <button class="tbtn tbtn-green" onclick="window.print()">⬇ Export PDF</button>
+    <button class="tbtn tbtn-ghost" onclick="saveHTML()">💾 Save HTML</button>
+    <span class="hint">Print dialog → Destination → Save as PDF &nbsp;|&nbsp; Margins → None or Minimum</span>
+  </div>
+
+  <div class="page-wrap">
+    <div class="page">
+
+      <!-- ══════════════ HEADER ══════════════ -->
+      <div class="rh-header">
+        <div class="rh-header-left">
+          <div class="rh-name" contenteditable="true">Prayin Gupta</div>
+          <div class="rh-title" contenteditable="true">Senior Full Stack Software Engineer</div>
+          <div class="rh-skills" contenteditable="true">
+            <span class="badge">ASP.NET Core</span> |
+            <span class="badge">Angular, React</span> |
+            <span class="badge">Microservices</span> |
+            <span class="badge">CI/CD</span> |
+            <span class="badge">Cloud (AWS/AZURE)</span>
+          </div>
+        </div>
+
+        <div class="rh-header-right">
+          <div class="rh-contact">
+            <div class="rh-ci">
+              <svg class="rh-ci-icon" width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+              </svg>
+              <span contenteditable="true">Noida, India</span>
+            </div>
+            <div class="rh-ci">
+              <svg class="rh-ci-icon" width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+              </svg>
+              <span contenteditable="true">+91 85429 95879</span>
+            </div>
+            <div class="rh-ci">
+              <svg class="rh-ci-icon" width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+              </svg>
+              <a href="mailto:pravingupta267@gmail.com" contenteditable="true">pravingupta267@gmail.com</a>
+            </div>
+            <div class="rh-ci">
+              <svg class="rh-ci-icon" width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.93 9h-3.02a15.7 15.7 0 0 0-1.38-5.03A8.03 8.03 0 0 1 18.93 11zM12 4.04c.83 1.2 1.8 3.52 2.01 6.96H9.99C10.2 7.56 11.17 5.24 12 4.04zM4.07 13h3.02c.13 1.8.61 3.53 1.38 5.03A8.03 8.03 0 0 1 4.07 13zm3.02-2H4.07a8.03 8.03 0 0 1 4.4-5.03A15.7 15.7 0 0 0 7.09 11zM12 19.96c-.83-1.2-1.8-3.52-2.01-6.96h4.02c-.21 3.44-1.18 5.76-2.01 6.96zM14.53 18.03A15.7 15.7 0 0 0 15.91 13h3.02a8.03 8.03 0 0 1-4.4 5.03z" />
+              </svg>
+              <a href="https://pravingupta-portfolio.vercel.app/"
+                contenteditable="true">pravingupta-portfolio.vercel.app</a>
+            </div>
+            <div class="rh-ci">
+              <svg class="rh-ci-icon" width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+              </svg>
+              <a href="https://www.linkedin.com/in/er-pravin-gupta/" contenteditable="true">LinkedIn</a>
+              <span style="color:var(--divider)">|</span>
+              <svg class="rh-ci-icon" width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+              </svg>
+              <a href="https://github.com/pravin-gmr" contenteditable="true">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═════════════ SUMMARY ══════════════ -->
+      <div class="section-header">PROFESSIONAL SUMMARY</div>
+      <p class="summary" contenteditable="true">
+        Senior Full Stack Engineer with <span class="m">6+ years</span> of enterprise software experience.
+        Currently leading <span class="m">Workforce Brokers</span> — a multi-tenant Staffing &amp; Workforce Management
+        platform for US clients.
+        Expert in .NET Core, Angular, Microservices, API design, and cloud deployments (AWS, Azure).
+        Shipped production solutions across HRMS, Workforce Management, Blockchain-MLM, and E-Commerce.
+        Pursuing <span class="m">AWS Solutions Architect – Associate (SAA-C03)</span> certification.
+      </p>
+
+      <!-- ══════════════ SKILLS ══════════════ -->
+      <div class="section-header">TECHNICAL SKILLS</div>
+      <div class="skills-grid">
+        <div class="skill-row">
+          <span class="skill-label" contenteditable="true">Frontend:</span>
+          <span class="skill-value" contenteditable="true">
+            Angular (v16–v20), React.js, RxJS, JavaScript, jQuery, AJAX, Razor Pages
+          </span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label" contenteditable="true">Backend &amp; Security:</span>
+          <span class="skill-value" contenteditable="true">
+            .NET Core 10/9/8/7, ASP.NET MVC, C#, EF Core, Dapper, LINQ, ADO.NET, Window Services, Auth0, MFA, JWT, SSO
+          </span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label" contenteditable="true">Database:</span>
+          <span class="skill-value" contenteditable="true">
+            MS SQL Server, MySQL, MongoDB, ATLAS GO
+          </span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label" contenteditable="true">Architecture &amp; Patterns:</span>
+          <span class="skill-value" contenteditable="true">
+            Microservices, N-Tier Architecture, Smart Contracts, Blockchain, Agile/Scrum
+          </span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label" contenteditable="true">Cloud &amp; DevOps:</span>
+          <span class="skill-value" contenteditable="true">
+            AWS (EC2, S3, SES), Azure (DevOps, Blob), CI/CD
+            (CodePipeline, GitHub Actions), IIS, Docker, Kubernetes
+          </span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label" contenteditable="true">Tools &amp; Observability:</span>
+          <span class="skill-value" contenteditable="true">
+            AutoMapper, Quartz, Serilog, SonarQube, Sentry, Github CodeQL,
+            Power BI, Postman, Git, Azure Boards, JIRA
+          </span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label" contenteditable="true">AI Productivity:</span>
+          <span class="skill-value" contenteditable="true">
+            GitHub Copilot, Cursor, Claude AI, ChatGPT, OpenAI API
+          </span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label" contenteditable="true">Professional Competencies:</span>
+          <span class="skill-value" contenteditable="true">
+            Effective Communication, Team Collaboration, Analytical Thinking, Problem Solving, Time
+            Management
+          </span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label" contenteditable="true">Certifications:</span>
+          <span class="skill-value" contenteditable="true">
+            AWS Solutions Architect – Associate (SAA-C03, <span class="m">In Progress</span>)
+          </span>
+        </div>
+      </div>
+
+      <!-- ══════════════ WORK EXPERIENCE ══════════════ -->
+      <div class="section-header">WORK EXPERIENCE</div>
+
+      <!-- Job 1 -->
+      <div class="job">
+        <div class="job-top">
+          <div>
+            <span class="job-co-title" contenteditable="true">NeoSOFT Technologies, Noida</span>
+            <span class="job-co-sub" contenteditable="true"> — Software Engineer, Full Stack</span>
+          </div>
+          <div class="job-dates" contenteditable="true">Apr 2024 – Present</div>
+        </div>
+        <ul class="bl">
+          <li contenteditable="true">Leading development on <b>Workforce Brokers</b>, a multi-tenant Workforce
+            Management
+            &amp; Staffing platform for US enterprise clients, within a team of <span class="m">10</span> (including
+            QA); managing feature delivery across Admin Portal, Apply Portal,
+            and Clock App.</li>
+          <li contenteditable="true">Owned and shipped <span class="m">8+ core modules</span> including Applicant
+            Management, Recruitment, Client &amp; Project Management, Payroll, Billing &amp; Invoicing, Reports &amp;
+            Analytics, and Onboarding through new feature development, bug fixes, and change requests.</li>
+          <li contenteditable="true">Integrated <b>Auth0 with MFA</b> for enterprise authentication; configured <b>AWS
+              SES</b> for transactional email, <b>S3</b> for document storage, and <b>EC2</b> for deployment — cutting
+            infrastructure setup time by <span class="m">~40%</span> via CI/CD (AWS CodePipeline &amp; GitHub
+            Actions).</li>
+          <li contenteditable="true">Designed HRMS microservices (Employee Master, Department Master, Role Master, Shift
+            Master) supporting multi-company approval hierarchies and configurable workflow rules.</li>
+          <li contenteditable="true">Built Attendance module integrating <b>biometric + manual inputs</b> with
+            rule-based
+            validations, reducing manual HR reporting effort by <span class="m">~30%</span> across multiple companies.
+          </li>
+          <li contenteditable="true">Used <b>GitHub Copilot, Cursor, and Claude</b> for AI-assisted development,
+            cutting sprint delivery time across the team.</li>
+          <li contenteditable="true">Led <b>Angular frontend migration from v8 to v20</b>, modernizing the codebase,
+            removing deprecated APIs, and improving build performance across the platform.</li>
+          <li contenteditable="true">Owned the full <b>multi-environment deployment pipeline</b> (QA → UAT → PROD) on
+            AWS, coordinating releases and ensuring zero-downtime deployments for enterprise clients.</li>
+          <li contenteditable="true">Acted as <b>Senior Developer</b> — mentored junior developers, led code reviews,
+            and coordinated team-wide technical decisions to keep releases on schedule.</li>
+          <li contenteditable="true">Provided <b>after-hours on-call support</b> across US time zones to resolve
+            critical production incidents, maintaining platform stability and client SLAs.</li>
+          <li contenteditable="true">Received written appreciation from <b>Technical Project Manager</b> for outstanding
+            technical ownership, timely issue resolution, and cross-timezone dedication.</li>
+        </ul>
+        <div class="stack" contenteditable="true"><b>Stack:</b> Angular 20 | .NET Core 10 | MySQL | Dapper | EF Core |
+          JWT | Auth0 | MFA | Serilog | Window Service | AWS SES | S3 | EC2 | ATLAS GO | CI/CD (CodePipeline &amp;
+          GitHub Actions)</div>
+      </div>
+
+      <!-- Job 2 -->
+      <div class="job">
+        <div class="job-top">
+          <div>
+            <span class="job-co-title" contenteditable="true">Rimark Technologies, Lucknow</span>
+            <span class="job-co-sub" contenteditable="true"> — Software Engineer, Full Stack</span>
+          </div>
+          <div class="job-dates" contenteditable="true">Oct 2021 – Mar 2024</div>
+        </div>
+        <ul class="bl">
+          <li contenteditable="true">
+            Architected and launched <span class="m">5+ client projects</span> across MLM,
+            Blockchain, and E-Commerce domains using N-Tier architecture, reducing system downtime by
+            <span class="m">~25%</span> through improved service isolation and scalability.
+          </li>
+          <li contenteditable="true">
+            Built <b>Ruby Stake Wallet</b> and <b>Ruby Coin</b> — two blockchain-based MLM
+            platforms on the Ruby Blockchain with full API integration for staking, crypto transactions, and reward
+            distribution, serving <span class="m">1M+ active users</span>.
+          </li>
+          <li contenteditable="true">
+            Developed <b>Click One Go</b>, a multi-vendor E-Commerce marketplace with affiliate
+            sales features, supporting local businesses, artisans, and entrepreneurs across multiple seller tiers.
+          </li>
+          <li contenteditable="true">Troubleshot and addressed <span class="m">30+ critical</span> database and
+            application performance issues; performed vulnerability patching and mitigated security weaknesses in
+            production environments.</li>
+          <li contenteditable="true">Collaborated directly with customers, project managers, and end-users to gather
+            requirements and deliver complex, multi-team projects on schedule.</li>
+        </ul>
+        <div class="stack" contenteditable="true"><b>Stack:</b> Angular 16/19 | .NET Core 7/9 | ASP.NET MVC 5 | MS SQL |
+          EF Core |
+          Dapper | Serilog | JWT | IIS</div>
+      </div>
+
+      <!-- Job 3 -->
+      <div class="job">
+        <div class="job-top">
+          <div>
+            <span class="job-co-title" contenteditable="true">Soft One Global, Lucknow</span>
+            <span class="job-co-sub" contenteditable="true"> — Software Developer</span>
+          </div>
+          <div class="job-dates" contenteditable="true">Mar 2021 – Sep 2021</div>
+        </div>
+        <ul class="bl">
+          <li contenteditable="true">Eliminated <span class="m">20+ critical</span> database and application performance
+            issues, improving response times across <span class="m">3 client web applications</span>.</li>
+          <li contenteditable="true">Designed and implemented database schemas and table structures, improving query
+            efficiency and data integrity for production systems.</li>
+          <li contenteditable="true">Analyzed requirements and generated system logic for new features, scripted tests,
+            and deployment procedures.</li>
+        </ul>
+      </div>
+
+      <!-- Job 4 -->
+      <div class="job">
+        <div class="job-top">
+          <div>
+            <span class="job-co-title" contenteditable="true">Mecatredz Technology, Lucknow</span>
+            <span class="job-co-sub" contenteditable="true"> — Apprenticeship Trainee</span>
+          </div>
+          <div class="job-dates" contenteditable="true">Sep 2020 – Mar 2021</div>
+        </div>
+        <ul class="bl">
+          <li contenteditable="true">Completed <span class="m">4 code projects</span> on schedule by collaborating with
+            senior developers; applied coding standards in software design and architecture.</li>
+          <li contenteditable="true">Identified and fixed <span class="m">15+ software bugs</span> through systematic
+            debugging, code reviews, and pair-programming sessions.</li>
+        </ul>
+      </div>
+
+      <!-- ══════════════ KEY PROJECTS ══════════════ -->
+      <div class="section-header">KEY PROJECTS</div>
+
+      <div class="project">
+        <div class="job-top">
+          <span class="proj-name" contenteditable="true">Workforce Brokers – Workforce Management &amp; Staffing
+            Platform</span>
+          <span class="job-dates" contenteditable="true">Mar 2025 – Present</span>
+        </div>
+        <div class="proj-meta" contenteditable="true">Team: 10 (incl. QA) &nbsp;|&nbsp; Domain: Workforce Management,
+          Staffing &amp; Recruitment (US Clients)</div>
+        <div class="proj-desc" contenteditable="true">Multi-tenant platform managing Applicant Tracking, Recruitment,
+          Client/Project Management, Payroll, Billing &amp; Invoicing, Time &amp; Attendance (Clock App), Reports &amp;
+          Analytics, and Onboarding Portal — all from a centralized Admin Portal serving multiple US client
+          organizations.</div>
+        <div class="stack" contenteditable="true"><b>Stack:</b> Angular 20 | .NET Core 10 API | MySQL | Dapper | LINQ |
+          EF Core | JWT | Auth0 | MFA | Serilog | Window Service | AWS SES | S3 | EC2 | ATLAS GO | CI/CD (CodePipeline
+          &amp; GitHub Actions) | GitHub Copilot | Cursor | Claude</div>
+      </div>
+
+      <div class="project">
+        <div class="job-top">
+          <span class="proj-name" contenteditable="true">Human Resource Management System (HRMS)</span>
+          <span class="job-dates" contenteditable="true">9 Months | Team: 10</span>
+        </div>
+        <div class="proj-meta" contenteditable="true">Domain: Human Resources &nbsp;|&nbsp; Architecture: Microservices
+        </div>
+        <div class="proj-desc" contenteditable="true">Centralized multi-company HRMS covering Recruitment, Employee
+          Management, Core HR, dynamic Workflow Engine, Attendance (biometric + manual), Shift Management, and Payroll
+          with company-specific approval hierarchies.</div>
+        <div class="stack" contenteditable="true"><b>Stack:</b> Angular 18 | .NET Core 8 | MongoDB | SQL Server | EF
+          Core | JWT | Serilog | Quartz | Azure DevOps | Azure AD | Azure Blob Storage | SSO</div>
+      </div>
+
+      <div class="project">
+        <div class="job-top">
+          <span class="proj-name" contenteditable="true">Ruby Stake Wallet &amp; Ruby Coin – Blockchain MLM
+            Platforms</span>
+          <span class="job-dates" contenteditable="true">4 Months each | Team: 3</span>
+        </div>
+        <div class="proj-meta" contenteditable="true">Domain: MLM, Cryptocurrency &nbsp;|&nbsp; Users: 1M+</div>
+        <div class="proj-desc" contenteditable="true">Two Ruby Blockchain-based MLM platforms for staking Ruby Coins,
+          earning rewards, and managing crypto transactions with full Ruby Blockchain API integration.</div>
+        <div class="stack" contenteditable="true"><b>Stack:</b> Angular 16/19 | .NET Core 7/9 | MS SQL | EF Core |
+          Dapper | Serilog | JWT | IIS</div>
+      </div>
+
+      <div class="project">
+        <div class="job-top">
+          <span class="proj-name" contenteditable="true">Click One Go – Multi-Vendor E-Commerce Platform</span>
+          <span class="job-dates" contenteditable="true">4 Months | Team: 3</span>
+        </div>
+        <div class="proj-desc" contenteditable="true">Multi-vendor marketplace with affiliate sales features supporting
+          local businesses, artisans, and entrepreneurs across multiple seller tiers.</div>
+        <div class="stack" contenteditable="true"><b>Stack:</b> ASP.NET MVC 5 | MS SQL | jQuery | AJAX | Basic Auth |
+          IIS</div>
+      </div>
+
+      <!-- ══════════════ EDUCATION ══════════════ -->
+      <div class="section-header">EDUCATION</div>
+      <div class="job-top">
+        <div>
+          <span class="edu-degree" contenteditable="true">Master of Computer Applications (MCA)</span>
+          <span class="edu-sub" contenteditable="true"> — Computer Science &amp; Programming</span>
+        </div>
+        <div class="job-dates" contenteditable="true">Aug 2023 – Jul 2025</div>
+      </div>
+      <div class="edu-info" contenteditable="true">Integral University, Lucknow, India</div>
+
+    </div><!-- /page -->
+  </div><!-- /page-wrap -->
+
+  <script>
+    function saveHTML() {
+      const clone = document.documentElement.cloneNode(true);
+      clone.querySelector('.toolbar')?.remove();
+      // strip focus styles from saved file
+      const blob = new Blob(['<!DOCTYPE html>\n' + clone.outerHTML], { type: 'text/html' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'Prayin_Gupta_Resume.html';
+      a.click();
+    }
+  </script>
+</body>
+
+</html>
